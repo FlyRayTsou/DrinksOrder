@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+.card-service-lg {
+    padding: 15px 20px;
+}
+.card {
+    border-radius: 4px;
+    background: #fff;
+    margin: 10px 0px 20px 0px;
+    transition: ease-in-out 0.3s;
+    border: 1px solid #ddd;
+    position: relative;
+    padding: 15px 0px;
+}
+.card-service-lg .con {
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.card .title {
+    color: #333;
+    font-weight: bold;
+}
+.card-service-lg .con .text {
+    margin-top: 5px;
+}
+.card .text {
+    color: #666;
+    font-size: 1.5rem;
+}
