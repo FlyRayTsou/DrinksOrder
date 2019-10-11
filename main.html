@@ -41,5 +41,30 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Name</label>
+                    <input type="text" id="edit-order-name" /><br>
+                    <label>Price</label>
+                    <input type="text" id="edit-order-price" /><br>
+                    <label>Note</label>
+                    <textarea id="edit-order-note"></textarea>
+                    <input id="item-nums" hidden="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="drinkAct.editOrder();">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>

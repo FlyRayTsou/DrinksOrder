@@ -1,20 +1,38 @@
-var orderList = [{ "orderName": "Milk Tea", "orderPrice": "$50", "orderNote": "no ice"},
-               { "orderName": "Black Tea", "orderPrice": "$40", "orderNote": "no sugar"},
-               { "orderName": "Green Tea", "orderPrice": "$30", "orderNote": "no ice and no sugar"}
-              ]
+var orderList = [{ "orderName": "Milk Tea", "orderPrice": "50", "orderNote": "no ice"},
+               { "orderName": "Black Tea", "orderPrice": "40", "orderNote": "no sugar"},
+               { "orderName": "Green Tea", "orderPrice": "30", "orderNote": "no ice and no sugar"}];
+
 $( document ).ready(function() {
-    var startHtml = "";
-    $.each(orderList, function(i, item){     
-        startHtml = startHtml + '<div class="card card-service-lg"><div class="con"><div class="title">' + item.orderName + '</div><div class="text">' + item.orderPrice + '</div><div class="note">' + item.orderNote + '</div></div></div>';
-    });
-    $("#order-part").append(startHtml);
+    drinkAct.renderOrders();
 });
+
 var drinkAct = {
     newOrder: function() {
-        var orderHtml = "";
-        orderHtml = orderHtml + '<div class="card card-service-lg"><div class="con"><div class="title">' + $("#order-name").val() + '</div><div class="text">' + $("#order-price").val() + '</div><div class="note">' + $("#order-note").val() + '</div></div></div>';
-        $("#order-part").append(orderHtml);
+        orderList.push({ "orderName": $("#order-name").val(), "orderPrice": $("#order-price").val(), "orderNote": $("#order-note").val() });
+        drinkAct.renderOrders();
+        $("#newOrderModal").modal("hide");
     },
     editOrder: function() {
+        var item = $("#item-nums").val();
+        orderList[item].orderName = $("#edit-order-name").val();
+        orderList[item].orderPrice = $("#edit-order-price").val();
+        orderList[item].orderNote = $("#edit-order-note").val();
+        drinkAct.renderOrders();
+        $("#editOrderModal").modal("hide");
+    },
+    editOrderModal: function(item) {
+        $("#item-nums").val(item);
+        $("#edit-order-name").val($("#" + item + "-title").text());
+        $("#edit-order-price").val($("#" + item + "-text").text());
+        $("#edit-order-note").val($("#" + item + "-note").text());
+        $("#editOrderModal").modal("show");
+    },
+    renderOrders: function() {
+        $("#order-part").empty();
+        var startHtml = "";
+        $.each(orderList, function(i, item){     
+            startHtml = startHtml + '<div class="card card-service-lg"><div class="con"><div class="title" id="' + i + '-title">' + item.orderName + '</div><div class="text" id="' + i +'-text">' + item.orderPrice + '</div><div class="note" id="' + i + '-note">' + item.orderNote + '</div><button class="btn btn-warning" onclick="drinkAct.editOrderModal(' + i + ')">Edit</button></div></div>';
+        });
+        $("#order-part").append(startHtml);
     }
 }
