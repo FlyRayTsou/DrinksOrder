@@ -19,14 +19,13 @@ h1 {
     padding-left: 15px;
     margin-top: 10px;
 }
-.card .title {
-    color: #333;
+.card .title, .card .text, .card .note {
+    color: #fa8756;
     font-weight: bold;
 }
-.card-service-lg .con .text {
-    margin-top: 5px;
+.card .note {
+    margin-bottom: 10px;
 }
-.card .text {
-    color: #666;
-    font-size: 1.5rem;
+.card .pre-intro {
+    color: #333;
 }

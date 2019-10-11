@@ -30,12 +30,12 @@
                     <label>Name</label>
                     <input type="text" id="order-name" /><br>
                     <label>Price</label>
-                    <input type="text" id="order-price" /><br>
+                    <input type="number" id="order-price" /><br>
                     <label>Note</label>
                     <textarea id="order-note"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="drinkAct.newOrder();">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="drinkAct.newOrder();">Create</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     <label>Name</label>
                     <input type="text" id="edit-order-name" /><br>
                     <label>Price</label>
-                    <input type="text" id="edit-order-price" /><br>
+                    <input type="number" id="edit-order-price" /><br>
                     <label>Note</label>
                     <textarea id="edit-order-note"></textarea>
                     <input id="item-nums" hidden="">
